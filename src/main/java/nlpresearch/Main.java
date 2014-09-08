@@ -19,7 +19,10 @@ import java.util.Properties;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        //TODO try this: http://nlp.stanford.edu/software/patternslearning.shtml#Download
+        // tool for boost strapping concept identification
+
+	    // write your code here
         // creates a StanfordCoreNLP object, with POS tagging, lemmatization, NER, parsing, and coreference resolution
         Properties props = new Properties();
         props.put("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
