@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="73db34d4-d264-4919-b76f-26906b465c25" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__de_jollyday_jollyday_0_4_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__edu_stanford_nlp_stanford_corenlp_3_4_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__edu_stanford_nlp_stanford_corenlp_models_3_4_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_json_javax_json_api_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaNlpResearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNlpResearch.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="JavaNlpResearch.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -145,32 +136,6 @@
             <path>
               <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
               <item name="JavaNlpResearch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaNlpResearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaNlpResearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaNlpResearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaNlpResearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="nlpresearch" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
@@ -410,11 +375,11 @@
       <window_info anchor="right" id="Kite Autosearch" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.49579832" />
       <window_info anchor="right" id="Maven Projects" order="2" weight="0.3294881" />
-      <window_info active="true" anchor="right" id="Run" order="7" visible="true" weight="0.47584715" />
+      <window_info anchor="right" id="Run" order="7" visible="true" weight="0.47584715" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="right" id="Designer" order="0" />
-      <window_info content_ui="combo" id="Project" order="2" weight="0.23792358" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.23792358" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="4" weight="0.24964234" />
       <window_info id="UI Designer" />
@@ -529,7 +494,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
         </state>
       </provider>
     </entry>
