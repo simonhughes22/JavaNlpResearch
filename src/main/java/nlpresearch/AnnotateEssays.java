@@ -173,7 +173,7 @@ public class AnnotateEssays {
             for(int sentIx = 0; sentIx < tokenSents.size(); sentIx++){
 
                 String originalSentTokens = String.join(" ", tokenSents.get(sentIx));
-                String replacedSentTokens = String.join("", replacedTokenSents.get(sentIx));
+                String replacedSentTokens = String.join(" ", replacedTokenSents.get(sentIx));
 
                 String line = originalSentTokens + DELIM + replacedSentTokens + DELIM;
                 if(affectedSpans.containsKey(sentIx)){
