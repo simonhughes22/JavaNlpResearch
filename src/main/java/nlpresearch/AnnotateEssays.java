@@ -100,6 +100,13 @@ public class AnnotateEssays {
             String headPhrase = representativeMention.mentionSpan;
 
             for (CorefChain.CorefMention mention : cc.getMentionsInTextualOrder()) {
+
+                String mentionPhrase = mention.mentionSpan;
+                // a lot of mentions are the same text
+                if(mentionPhrase.equals(headPhrase)){
+                    continue;
+                }
+
                 int sentNo = mention.sentNum - 1;
 
                 int startIndex = mention.startIndex - 1;
