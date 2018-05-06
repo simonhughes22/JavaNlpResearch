@@ -2,7 +2,6 @@ package nlpresearch;
 
 import edu.stanford.nlp.coref.CorefCoreAnnotations;
 import edu.stanford.nlp.coref.data.CorefChain;
-import edu.stanford.nlp.coref.data.Mention;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
@@ -21,9 +20,11 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
 
-public class AnnotateEssays {
+public class AnnotateEssaysFull {
 
-    public static final String DELIM = "|||";
+    // annotates all key tags in a sentence, including co-references
+    public static final String DELIM = "->";
+    public static final String DELIM_TAG = "|||";
 
     public static class Tuple<X, Y> {
         public final X x;
@@ -69,35 +70,16 @@ public class AnnotateEssays {
         return sb.toString();
     }
 
-    private static List<List<String>> copySentences(List<List<String>> sentences){
-        List<List<String>> copySents = new ArrayList<>();
-        for(List<String> sent: sentences){
-            List<String> copySent = copyWithoutEmptyStrings(sent);
-            copySents.add(copySent);
-        }
-        return copySents;
-    }
+    private static void addCoRefTags(Annotation document, List<Sentence> taggedSentences) {
 
-    private static List<String> copyWithoutEmptyStrings(List<String> tokens){
-        List<String> newTokens = new ArrayList<>();
-        for(String tok: tokens){
-            if(tok.trim().length() > 0){
-                newTokens.add(tok.trim());
-            }
-        }
-        return newTokens;
-    }
-
-    private static Tuple<List<List<String>>, Map<Integer,List<Tuple<Integer,Integer>>>> replaceMentions(Annotation document, List<List<String>> tokenSents) {
-
-        Map<Integer, List<Tuple<Integer,Integer>>> affectedSpans = new HashMap<>();
-
-        List<List<String>> replacedTokenSents = copySentences(tokenSents);
+        Integer headPhraseId = 0;
         for (CorefChain cc : document.get(CorefCoreAnnotations.CorefChainAnnotation.class).values()) {
 
             CorefChain.CorefMention representativeMention = cc.getRepresentativeMention();
-            // note that all indexes and numbers are 1 based
             String headPhrase = representativeMention.mentionSpan.toLowerCase();
+            headPhraseId++;
+
+            tagWordsInMention(taggedSentences, representativeMention, COREF_ID, headPhraseId.toString());
 
             for (CorefChain.CorefMention mention : cc.getMentionsInTextualOrder()) {
 
@@ -107,28 +89,25 @@ public class AnnotateEssays {
                     continue;
                 }
 
-                int sentNo = mention.sentNum - 1;
-
-                int startIndex = mention.startIndex - 1;
-                int endIndex = mention.endIndex - 2;
-
-                List<String> sentence = replacedTokenSents.get(sentNo);
-                if(!affectedSpans.containsKey(sentNo)){
-                    affectedSpans.put(sentNo, new ArrayList<Tuple<Integer,Integer>>());
-                }
-                affectedSpans.get(sentNo).add(new Tuple<>(startIndex, endIndex));
-
-                sentence.set(startIndex, "[[" + headPhrase.trim() + "]]");
-                // wipe out the rest of the original mention
-                for (int ix = startIndex + 1; ix <= endIndex; ix++) {
-                    sentence.set(ix, "");
-                }
-
+                tagWordsInMention(taggedSentences, mention, COREF_REF, headPhraseId.toString());
+                // ensure is a single tag
+                tagWordsInMention(taggedSentences, mention, COREF_PHRASE, headPhrase.replace(" ", "_"));
             }
         }
-        // removes empty strings
-        replacedTokenSents = copySentences(replacedTokenSents);
-        return new Tuple<List<List<String>>, Map<Integer,List<Tuple<Integer,Integer>>>>(replacedTokenSents, affectedSpans);
+    }
+
+    private static void tagWordsInMention(List<Sentence> taggedSentences, CorefChain.CorefMention mention, String tagName, String tagValue) {
+        // note that all indexes and numbers are 1 based
+        int sentNo = mention.sentNum - 1;
+        int startIndex = mention.startIndex - 1;
+        int endIndex = mention.endIndex - 2;
+
+        Sentence sentence = taggedSentences.get(sentNo);
+
+        for (int ix = startIndex; ix <= endIndex; ix++) {
+            Word wd = sentence.words.get(ix);
+            wd.AddTag(tagName, tagValue);
+        }
     }
 
     public static void main(String[] args) throws IOException {
@@ -163,31 +142,28 @@ public class AnnotateEssays {
             Annotation document = new Annotation( text);
             pipeline.annotate(document);
 
-            List<List<String>> tokenSents = getSentences(document);
-            Tuple<List<List<String>>, Map<Integer,List<Tuple<Integer,Integer>>>> mentionsSpanPair = replaceMentions(document, tokenSents);
-
-            List<List<String>> replacedTokenSents = mentionsSpanPair.x;
-            Map<Integer,List<Tuple<Integer,Integer>>> affectedSpans = mentionsSpanPair.y;
+            List<Sentence> taggedSentences = getSentences(document);
+            addCoRefTags(document, taggedSentences);
 
             List<String> lines = new ArrayList<>();
-            for(int sentIx = 0; sentIx < tokenSents.size(); sentIx++){
 
-                String originalSentTokens = String.join(" ", tokenSents.get(sentIx));
-                String replacedSentTokens = String.join(" ", replacedTokenSents.get(sentIx));
-
-                String line = originalSentTokens + DELIM + replacedSentTokens + DELIM;
-                if(affectedSpans.containsKey(sentIx)){
-                    List<String> spanSection = new ArrayList<>();
-                    List<Tuple<Integer,Integer>> spans = affectedSpans.get(sentIx);
-                    for(Tuple<Integer,Integer> span: spans){
-                        spanSection.add(span.x.toString() + "->"  + span.y.toString());
+            for(Sentence sentence: taggedSentences){
+                StringBuilder sbLine = new StringBuilder();
+                for(Word wd: sentence.words){
+                    sbLine.append(wd.token.toLowerCase()).append(DELIM);
+                    for(Map.Entry entry: wd.tags.entrySet()){
+                        sbLine.append(entry.getKey()).append(":").append(entry.getValue());
+                        sbLine.append(DELIM_TAG);
                     }
-                    line += String.join(",", spanSection);
+                    sbLine.append(" ");
                 }
-                lines.add(line.toLowerCase());
+                String line = sbLine.toString();
+                // remove trailing tags
+                line = line.replace(DELIM_TAG + " ", " ");
+                lines.add(line.trim());
             }
 
-            String outputFileName = fname + ".coref";
+            String outputFileName = fname + ".tagged";
             Path file = Paths.get(outputFileName);
             Files.write(file, lines, Charset.forName("UTF-8"));
 
@@ -201,21 +177,57 @@ public class AnnotateEssays {
         System.out.println(dur);
     }
 
-    private static List<List<String>> getSentences(Annotation document) {
-        List<List<String>> tokenSents = new ArrayList<List<String>>();
+    private static final String POS  = "POS";
+    private static final String NER  = "NER";
+    private static final String COREF_ID  = "COREF_ID";
+    private static final String COREF_REF  = "COREF_REF";
+    private static final String COREF_PHRASE  = "COREF_PHRASE";
 
-        List<CoreMap> sentences = document.get(CoreAnnotations.SentencesAnnotation.class);
-        for(CoreMap sent: sentences){
+    private static List<Sentence> getSentences(Annotation document) {
+        List<Sentence> sents = new ArrayList<>();
 
-            List<String> tokenSent = new ArrayList<>();
+        List<CoreMap> coreSentences = document.get(CoreAnnotations.SentencesAnnotation.class);
+        for(CoreMap sent: coreSentences){
+
+            Sentence sentence = new Sentence();
+            sents.add(sentence);
+
             for (CoreLabel token: sent.get(CoreAnnotations.TokensAnnotation.class)) {
                 // this is the text of the token
-                String word = token.get(CoreAnnotations.TextAnnotation.class);
-                tokenSent.add(word);
+                String tokenValue = token.get(CoreAnnotations.TextAnnotation.class);
+                String pos = token.get(CoreAnnotations.PartOfSpeechAnnotation.class);
+                // this is the NER label of the token
+                String ne = token.get(CoreAnnotations.NamedEntityTagAnnotation.class);
+                Word wd = new Word(tokenValue);
+                wd.AddTag(POS, pos);
+                wd.AddTag(NER, ne);
+                sentence.addWord(wd);
             }
-            tokenSents.add(tokenSent);
+
         }
-        return tokenSents;
+        return sents;
+    }
+
+    private static class Word{
+        public String token;
+        public Map<String,String> tags;
+
+        public Word(String token){
+            this.token = token;
+            this.tags = new HashMap<>();
+        }
+
+        public void AddTag(String tagName, String value){
+            this.tags.put(tagName, value);
+        }
+    }
+
+    private static class Sentence{
+        public List<AnnotateEssaysFull.Word> words = new ArrayList<AnnotateEssaysFull.Word>();
+
+        public void addWord(AnnotateEssaysFull.Word word){
+            this.words.add(word);
+        }
     }
 
     //TODO: If the noun phrase in both is the same, then don't replace the text. If the head phrase is quite long, replace it just with the noun phrase (if there is one)
