@@ -112,8 +112,10 @@ public class AnnotateEssaysFull {
 
     public static void main(String[] args) throws IOException {
 
+        final String DATASET = "CoralBleaching";
+        final String PARTITION = "Test";
 
-        String folder = "/Users/simon.hughes/Google Drive/Phd/Data/CoralBleaching/Thesis_Dataset/CoReference/Training";
+        String folder = "/Users/simon.hughes/Google Drive/Phd/Data/" + DATASET + "/Thesis_Dataset/CoReference/" + PARTITION;
         List<String> filenames = findFiles(folder);
 
         // see https://stanfordnlp.github.io/CoreNLP/coref.html
@@ -196,6 +198,9 @@ public class AnnotateEssaysFull {
                 // this is the text of the token
                 String tokenValue = token.get(CoreAnnotations.TextAnnotation.class);
                 String pos = token.get(CoreAnnotations.PartOfSpeechAnnotation.class);
+                if(pos.equals(":")){
+                    pos = "COLON";
+                }
                 // this is the NER label of the token
                 String ne = token.get(CoreAnnotations.NamedEntityTagAnnotation.class);
                 Word wd = new Word(tokenValue);
