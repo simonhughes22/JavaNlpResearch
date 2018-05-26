@@ -112,7 +112,7 @@ public class AnnotateEssaysFull {
 
     public static void main(String[] args) throws IOException {
 
-        final String DATASET = "CoralBleaching";
+        final String DATASET = "SkinCancer";
         final String PARTITION = "Test";
 
         String folder = "/Users/simon.hughes/Google Drive/Phd/Data/" + DATASET + "/Thesis_Dataset/CoReference/" + PARTITION;

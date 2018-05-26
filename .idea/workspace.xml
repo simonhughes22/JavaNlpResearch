@@ -62,11 +62,11 @@
       <file leaf-file-name="AnnotateEssaysFull.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="115" column="38" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
+            <state relative-caret-position="225">
+              <caret line="185" column="61" selection-start-line="185" selection-start-column="49" selection-end-line="185" selection-end-column="61" />
               <folding>
                 <element signature="e#1129#1137#0" expanded="true" />
-                <element signature="e#8226#8251#0" expanded="true" />
+                <element signature="e#8313#8338#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -436,11 +436,11 @@
       <window_info anchor="right" id="Palette" order="1" />
       <window_info anchor="bottom" id="TODO" order="9" />
       <window_info id="Palette&#9;" order="0" />
-      <window_info anchor="right" id="Kite Autosearch" order="3" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.49579832" />
       <window_info anchor="right" id="Maven Projects" order="2" weight="0.3294881" />
       <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="right" id="Run" order="7" weight="0.38764045" />
+      <window_info anchor="right" id="Run" order="7" weight="0.38132024" />
+      <window_info anchor="right" id="Kite" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="right" id="Designer" order="0" />
       <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4986226" weight="0.23735955" />
@@ -452,12 +452,13 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Application Servers" order="4" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.17355372" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Changes" order="0" />
       <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Changes" order="0" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="right" id="Kite Autosearch" order="3" />
       <window_info anchor="bottom" id="Find" order="6" visible="true" weight="0.3305785" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.17355372" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -562,11 +563,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1380">
+          <caret line="110" column="5" lean-forward="true" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+          <folding>
+            <element signature="e#1129#1137#0" expanded="true" />
+            <element signature="e#8313#8338#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/StanfordNLPDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="53" column="52" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/CoReferenceDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1665">
+          <caret line="130" column="106" selection-start-line="130" selection-start-column="88" selection-end-line="130" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2895">
           <caret line="211" column="5" lean-forward="true" selection-start-line="211" selection-start-column="5" selection-end-line="211" selection-end-column="5" />
           <folding>
             <element signature="e#1129#1137#0" expanded="true" />
-            <element signature="e#8226#8251#0" expanded="true" />
+            <element signature="e#8313#8338#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -812,11 +854,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="115" column="38" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
+        <state relative-caret-position="225">
+          <caret line="185" column="61" selection-start-line="185" selection-start-column="49" selection-end-line="185" selection-end-column="61" />
           <folding>
             <element signature="e#1129#1137#0" expanded="true" />
-            <element signature="e#8226#8251#0" expanded="true" />
+            <element signature="e#8313#8338#0" expanded="true" />
           </folding>
         </state>
       </provider>
