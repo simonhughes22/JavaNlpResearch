@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73db34d4-d264-4919-b76f-26906b465c25" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssays.java" beforeDir="false" />
     </list>
     <ignored path="JavaNlpResearch.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,13 +30,13 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="java" value="12" />
+          <entry key="java" value="13" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="12" />
+          <entry key="JAVA" value="13" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="2" />
         </counts>
@@ -67,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
+            <state relative-caret-position="2341">
               <caret line="259" column="25" selection-start-line="259" selection-start-column="25" selection-end-line="259" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -172,6 +171,27 @@
               <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
               <item name="JavaNlpResearch" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaNlpResearch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaNlpResearch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaNlpResearch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nlpresearch" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JavaNlpResearch" type="b2602c69:ProjectViewProjectNode" />
@@ -422,9 +442,9 @@
     <layout>
       <window_info id="Palette&#9;" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.48062953" visible="true" weight="0.1638601" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.48062953" visible="true" weight="0.19106218" />
       <window_info id="UI Designer" order="3" />
-      <window_info id="Structure" order="4" sideWeight="0.51937044" side_tool="true" visible="true" weight="0.1638601" />
+      <window_info id="Structure" order="4" sideWeight="0.51937044" side_tool="true" visible="true" weight="0.19106218" />
       <window_info anchor="bottom" id="Changes" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.4951574" />
@@ -473,12 +493,6 @@
           <line>34</line>
           <properties />
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssays.java</url>
-          <line>165</line>
-          <properties />
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="this.tags.get(tagName).size() &gt; 0" language="JAVA" />
@@ -576,16 +590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2134">
-          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -691,7 +695,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
+        <state relative-caret-position="2341">
           <caret line="259" column="25" selection-start-line="259" selection-start-column="25" selection-end-line="259" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -702,6 +706,16 @@
             <element signature="method#loadProperties#0;class#AnnotateEssaysFull#0" />
             <element signature="method#createProperties#0;class#AnnotateEssaysFull#0" />
             <element signature="method#annotateDatasetPartition#0;class#AnnotateEssaysFull#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2149">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
