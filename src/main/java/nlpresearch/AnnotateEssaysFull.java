@@ -214,8 +214,8 @@ public class AnnotateEssaysFull {
                 String folder = "/Users/simon.hughes/Google Drive/Phd/Data/" + dataset + "/Thesis_Dataset/CoReference/" + partition;
                 System.out.println("Dataset: " + dataset);
                 System.out.println("\t Partition: " + partition);
-                System.out.println();
                 annotateDatasetPartition(folder, pipeline);
+                System.out.println();
             }
         }
     }
@@ -249,7 +249,7 @@ public class AnnotateEssaysFull {
         Instant globalStart = Instant.now();
 
         System.out.print("\t\t ");
-        System.out.println(Integer.valueOf(filenames.size()).toString() + " files found\n");
+        System.out.println(Integer.valueOf(filenames.size()).toString() + " files found");
         for(String fname: filenames){
 
             if(fileNo % 10 == 0 && fileNo > 0){
