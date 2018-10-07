@@ -110,73 +110,32 @@ public class AnnotateEssaysFull {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    private static void writeToFile(String fname, List<Sentence> taggedSentences, String extension) throws IOException {
+        List<String> lines = new ArrayList<>();
 
-        final String DATASET = "SkinCancer";
-        final String PARTITION = "Test";
+        for(Sentence sentence: taggedSentences){
+            StringBuilder sbLine = new StringBuilder();
+            for(Word wd: sentence.words){
+                sbLine.append(wd.token.toLowerCase()).append(DELIM);
+                for(Map.Entry<String, Set<String>> entry: wd.tags.entrySet()){
 
-        String folder = "/Users/simon.hughes/Google Drive/Phd/Data/" + DATASET + "/Thesis_Dataset/CoReference/" + PARTITION;
-        List<String> filenames = findFiles(folder);
-
-        // see https://stanfordnlp.github.io/CoreNLP/coref.html
-        // NOTE - all of these other models are required to do co-ref resolution
-        Properties props = new Properties();
-        props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,depparse,coref");
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
-
-        int fileNo = 0;
-        Instant start = Instant.now();
-        Instant globalStart = Instant.now();
-
-        for(String fname: filenames){
-
-            if(fileNo % 10 == 0){
-                System.out.print(new Integer(fileNo));
-                Instant end = Instant.now();
-                Duration dur = Duration.between(start, end);
-                System.out.print(" : ");
-                System.out.print(dur.getSeconds()/10);
-                System.out.println(" secs per doc");
-                start = Instant.now();
-            }
-
-            String text = readFile(fname);
-            Annotation document = new Annotation( text);
-            pipeline.annotate(document);
-
-            List<Sentence> taggedSentences = getSentences(document);
-            addCoRefTags(document, taggedSentences);
-
-            List<String> lines = new ArrayList<>();
-
-            for(Sentence sentence: taggedSentences){
-                StringBuilder sbLine = new StringBuilder();
-                for(Word wd: sentence.words){
-                    sbLine.append(wd.token.toLowerCase()).append(DELIM);
-                    for(Map.Entry entry: wd.tags.entrySet()){
-                        sbLine.append(entry.getKey()).append(":").append(entry.getValue());
+                    Set<String> values = entry.getValue();
+                    for(String val : values){
+                        sbLine.append(entry.getKey()).append(":").append(val);
                         sbLine.append(DELIM_TAG);
                     }
-                    sbLine.append(" ");
                 }
-                String line = sbLine.toString();
-                // remove trailing tags
-                line = line.replace(DELIM_TAG + " ", " ");
-                lines.add(line.trim());
+                sbLine.append(" ");
             }
-
-            String outputFileName = fname + ".tagged";
-            Path file = Paths.get(outputFileName);
-            Files.write(file, lines, Charset.forName("UTF-8"));
-
-            fileNo++;
+            String line = sbLine.toString();
+            // remove trailing tags
+            line = line.replace(DELIM_TAG + " ", " ");
+            lines.add(line.trim());
         }
-        System.out.println();
-        System.out.println("Done");
-        Instant globalEnd = Instant.now();
-        Duration dur = Duration.between(globalStart, globalEnd);
-        System.out.print("Took: ");
-        System.out.println(dur);
+
+        String outputFileName = fname + "." + extension;
+        Path file = Paths.get(outputFileName);
+        Files.write(file, lines, Charset.forName("UTF-8"));
     }
 
     private static final String POS  = "POS";
@@ -215,7 +174,7 @@ public class AnnotateEssaysFull {
 
     private static class Word{
         public String token;
-        public Map<String,String> tags;
+        public Map<String,Set<String>> tags;
 
         public Word(String token){
             this.token = token;
@@ -223,7 +182,10 @@ public class AnnotateEssaysFull {
         }
 
         public void AddTag(String tagName, String value){
-            this.tags.put(tagName, value);
+            if(!this.tags.containsKey(tagName)){
+                this.tags.put(tagName, new HashSet<String>());
+            }
+            this.tags.get(tagName).add(value);
         }
     }
 
@@ -233,6 +195,60 @@ public class AnnotateEssaysFull {
         public void addWord(AnnotateEssaysFull.Word word){
             this.words.add(word);
         }
+    }
+
+    public static void main(String[] args) throws IOException {
+
+         final String DATASET = "SkinCancer";
+//        final String DATASET = "CoralBleaching";
+        final String PARTITION = "Training";
+//        final String PARTITION = "Test";
+
+        String folder = "/Users/simon.hughes/Google Drive/Phd/Data/" + DATASET + "/Thesis_Dataset/CoReference/" + PARTITION;
+        List<String> filenames = findFiles(folder);
+
+        // see https://stanfordnlp.github.io/CoreNLP/coref.html
+        // NOTE - all of these other models are required to do co-ref resolution
+        Properties props = new Properties();
+        props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,depparse,coref");
+        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+        System.out.println("Stanford Core NLP library loaded\n");
+
+        int fileNo = 0;
+        Instant start = Instant.now();
+        Instant globalStart = Instant.now();
+
+        System.out.println(Integer.valueOf(filenames.size()).toString() + " files found");
+        for(String fname: filenames){
+
+            if(fileNo % 10 == 0 && fileNo > 0){
+                System.out.print(Integer.valueOf(fileNo));
+                Instant end = Instant.now();
+                Duration dur = Duration.between(start, end);
+                System.out.print(" : ");
+                System.out.print(dur.getSeconds()/10);
+                System.out.print(" secs per doc");
+                System.out.println();
+                start = Instant.now();
+            }
+
+            String text = readFile(fname);
+            Annotation document = new Annotation( text);
+            pipeline.annotate(document);
+
+            List<Sentence> taggedSentences = getSentences(document);
+            addCoRefTags(document, taggedSentences);
+
+            writeToFile(fname, taggedSentences, "tagged");
+
+            fileNo++;
+        }
+        System.out.println();
+        System.out.println("Done");
+        Instant globalEnd = Instant.now();
+        Duration dur = Duration.between(globalStart, globalEnd);
+        System.out.print("Took: ");
+        System.out.println(dur);
     }
 
     //TODO: If the noun phrase in both is the same, then don't replace the text. If the head phrase is quite long, replace it just with the noun phrase (if there is one)
