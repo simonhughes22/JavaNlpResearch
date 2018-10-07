@@ -8,10 +8,7 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -201,16 +198,26 @@ public class AnnotateEssaysFull {
 
          final String DATASET = "SkinCancer";
 //        final String DATASET = "CoralBleaching";
-        final String PARTITION = "Training";
-//        final String PARTITION = "Test";
+//        final String PARTITION = "Training";
+        final String PARTITION = "Test";
 
         String folder = "/Users/simon.hughes/Google Drive/Phd/Data/" + DATASET + "/Thesis_Dataset/CoReference/" + PARTITION;
         List<String> filenames = findFiles(folder);
 
         // see https://stanfordnlp.github.io/CoreNLP/coref.html
         // NOTE - all of these other models are required to do co-ref resolution
+//        Properties props = new Properties();
+//        props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,depparse,coref");
+//        props.setProperty("coref.algorithm", "neural");
+
+        InputStream input = AnnotateEssaysFull.class.getClass().getResourceAsStream("/neural-english.properties");
         Properties props = new Properties();
-        props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,depparse,coref");
+        try {
+            props.load(input);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
         System.out.println("Stanford Core NLP library loaded\n");
 
