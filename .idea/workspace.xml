@@ -41,14 +41,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="606" />
+          <entry key="java" value="609" />
           <entry key="txt" value="3" />
           <entry key="xml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="606" />
+          <entry key="JAVA" value="609" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="XML" value="5" />
         </counts>
@@ -63,12 +63,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1158">
-              <caret line="87" selection-start-line="87" selection-end-line="87" />
+            <state relative-caret-position="266">
+              <caret line="259" column="25" selection-start-line="259" selection-start-column="25" selection-end-line="259" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getSentences#0;class#AnnotateEssaysFull#0" />
-                <element signature="e#8860#8885#0" expanded="true" />
+                <element signature="e#1040#1048#0" expanded="true" />
+                <element signature="e#6794#6819#0" expanded="true" />
+                <element signature="e#6881#6882#0" expanded="true" />
+                <element signature="e#6925#6926#0" expanded="true" />
+                <element signature="method#loadProperties#0;class#AnnotateEssaysFull#0" />
+                <element signature="method#createProperties#0;class#AnnotateEssaysFull#0" />
+                <element signature="method#annotateDatasetPartition#0;class#AnnotateEssaysFull#0" />
               </folding>
             </state>
           </provider>
@@ -400,6 +405,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1586" height="918" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -464,13 +470,13 @@
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="this.tags.get(tagName).size() &gt; 0" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java</url>
-          <line>187</line>
+          <line>234</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java</url>
-          <line>217</line>
+          <line>220</line>
           <properties />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
@@ -679,12 +685,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1158">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        <state relative-caret-position="266">
+          <caret line="259" column="25" selection-start-line="259" selection-start-column="25" selection-end-line="259" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getSentences#0;class#AnnotateEssaysFull#0" />
-            <element signature="e#8860#8885#0" expanded="true" />
+            <element signature="e#1040#1048#0" expanded="true" />
+            <element signature="e#6794#6819#0" expanded="true" />
+            <element signature="e#6881#6882#0" expanded="true" />
+            <element signature="e#6925#6926#0" expanded="true" />
+            <element signature="method#loadProperties#0;class#AnnotateEssaysFull#0" />
+            <element signature="method#createProperties#0;class#AnnotateEssaysFull#0" />
+            <element signature="method#annotateDatasetPartition#0;class#AnnotateEssaysFull#0" />
           </folding>
         </state>
       </provider>

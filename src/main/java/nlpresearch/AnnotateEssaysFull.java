@@ -194,32 +194,6 @@ public class AnnotateEssaysFull {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-
-        // see https://stanfordnlp.github.io/CoreNLP/coref.html
-        // NOTE - all of these other models are required to do co-ref resolution
-//        Properties props = new Properties();
-//        props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,depparse,coref");
-//        props.setProperty("coref.algorithm", "neural");
-
-        Properties props = loadProperties("neural-english.properties");
-        List<String> datasets   = Arrays.asList("CoralBleaching", "SkinCancer");
-        List<String> partitions = Arrays.asList("Training", "Test");
-
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
-        System.out.println("Stanford Core NLP library loaded\n");
-
-        for(String dataset: datasets){
-            for(String partition: partitions){
-                String folder = "/Users/simon.hughes/Google Drive/Phd/Data/" + dataset + "/Thesis_Dataset/CoReference/" + partition;
-                System.out.println("Dataset: " + dataset);
-                System.out.println("\t Partition: " + partition);
-                annotateDatasetPartition(folder, pipeline);
-                System.out.println();
-            }
-        }
-    }
-
     private static Properties loadProperties(String fileName) {
         // see files here: https://github.com/stanfordnlp/CoreNLP/tree/master/src/edu/stanford/nlp/coref/properties
 
@@ -281,6 +255,32 @@ public class AnnotateEssaysFull {
         Duration dur = Duration.between(globalStart, globalEnd);
         System.out.print("Took: ");
         System.out.println(dur);
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        // see https://stanfordnlp.github.io/CoreNLP/coref.html
+        // NOTE - all of these other models are required to do co-ref resolution
+//        Properties props = new Properties();
+//        props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,depparse,coref");
+//        props.setProperty("coref.algorithm", "neural");
+
+        Properties props = loadProperties("neural-english.properties");
+        List<String> datasets   = Arrays.asList("CoralBleaching", "SkinCancer");
+        List<String> partitions = Arrays.asList("Training", "Test");
+
+        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+        System.out.println("Stanford Core NLP library loaded\n");
+
+        for(String dataset: datasets){
+            for(String partition: partitions){
+                String folder = "/Users/simon.hughes/Google Drive/Phd/Data/" + dataset + "/Thesis_Dataset/CoReference/" + partition;
+                System.out.println("Dataset: " + dataset);
+                System.out.println("\t Partition: " + partition);
+                annotateDatasetPartition(folder, pipeline);
+                System.out.println();
+            }
+        }
     }
 
     //TODO: If the noun phrase in both is the same, then don't replace the text. If the head phrase is quite long, replace it just with the noun phrase (if there is one)
