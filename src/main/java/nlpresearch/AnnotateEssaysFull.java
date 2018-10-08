@@ -23,6 +23,12 @@ public class AnnotateEssaysFull {
     public static final String DELIM = "->";
     public static final String DELIM_TAG = "|||";
 
+    private static final String POS  = "POS";
+    private static final String NER  = "NER";
+    private static final String COREF_ID  = "COREF_ID";
+    private static final String COREF_REF  = "COREF_REF";
+    private static final String COREF_PHRASE  = "COREF_PHRASE";
+
     public static class Tuple<X, Y> {
         public final X x;
         public final Y y;
@@ -134,12 +140,6 @@ public class AnnotateEssaysFull {
         Path file = Paths.get(outputFileName);
         Files.write(file, lines, Charset.forName("UTF-8"));
     }
-
-    private static final String POS  = "POS";
-    private static final String NER  = "NER";
-    private static final String COREF_ID  = "COREF_ID";
-    private static final String COREF_REF  = "COREF_REF";
-    private static final String COREF_PHRASE  = "COREF_PHRASE";
 
     private static List<Sentence> getSentences(Annotation document) {
         List<Sentence> sents = new ArrayList<>();

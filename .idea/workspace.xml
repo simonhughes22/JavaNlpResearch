@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73db34d4-d264-4919-b76f-26906b465c25" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssays.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java" afterDir="false" />
     </list>
     <ignored path="JavaNlpResearch.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -20,7 +20,7 @@
     <session id="-1632101281">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.3" value="1" />
@@ -30,13 +30,13 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="java" value="13" />
+          <entry key="java" value="14" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="13" />
+          <entry key="JAVA" value="14" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="2" />
         </counts>
@@ -44,14 +44,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="6" />
-          <entry key="java" value="609" />
+          <entry key="java" value="612" />
           <entry key="txt" value="3" />
           <entry key="xml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="609" />
+          <entry key="JAVA" value="612" />
           <entry key="PLAIN_TEXT" value="9" />
           <entry key="XML" value="5" />
         </counts>
@@ -63,11 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2341">
-              <caret line="259" column="25" selection-start-line="259" selection-start-column="25" selection-end-line="259" selection-end-column="25" />
+            <state relative-caret-position="555">
+              <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1040#1048#0" expanded="true" />
@@ -78,15 +78,6 @@
                 <element signature="method#createProperties#0;class#AnnotateEssaysFull#0" />
                 <element signature="method#annotateDatasetPartition#0;class#AnnotateEssaysFull#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -115,8 +106,8 @@
         <option value="$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssays.java" />
         <option value="$PROJECT_DIR$/src/main/java/nlpresearch/StanfordNLPDemo.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java" />
       </list>
     </option>
   </component>
@@ -438,7 +429,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1586" height="918" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -464,7 +454,7 @@
       <window_info anchor="right" id="Ant Build" order="5" weight="0.24964234" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
       <window_info anchor="right" id="Debug" order="7" weight="0.3950777" />
-      <window_info anchor="right" id="Run" order="8" visible="true" weight="0.32059586" />
+      <window_info anchor="right" id="Run" order="8" weight="0.23898964" />
       <window_info anchor="right" id="Kite" order="9" />
     </layout>
   </component>
@@ -586,16 +576,6 @@
     <entry file="jar://$MAVEN_REPOSITORY$/edu/stanford/nlp/stanford-corenlp/3.9.1/stanford-corenlp-3.9.1-sources.jar!/edu/stanford/nlp/util/CoreMap.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/edu/stanford/nlp/stanford-corenlp/3.9.1/stanford-corenlp-3.9.1-sources.jar!/edu/stanford/nlp/util/ArrayCoreMap.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/edu/stanford/nlp/stanford-corenlp/3.9.1/stanford-corenlp-3.9.1-sources.jar!/edu/stanford/nlp/util/TypesafeMap.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/CoReferenceDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -693,23 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2341">
-          <caret line="259" column="25" selection-start-line="259" selection-start-column="25" selection-end-line="259" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1040#1048#0" expanded="true" />
-            <element signature="e#6794#6819#0" expanded="true" />
-            <element signature="e#6881#6882#0" expanded="true" />
-            <element signature="e#6925#6926#0" expanded="true" />
-            <element signature="method#loadProperties#0;class#AnnotateEssaysFull#0" />
-            <element signature="method#createProperties#0;class#AnnotateEssaysFull#0" />
-            <element signature="method#annotateDatasetPartition#0;class#AnnotateEssaysFull#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssays.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2149">
@@ -724,6 +687,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/CoReferenceDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nlpresearch/AnnotateEssaysFull.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1040#1048#0" expanded="true" />
+            <element signature="e#6794#6819#0" expanded="true" />
+            <element signature="e#6881#6882#0" expanded="true" />
+            <element signature="e#6925#6926#0" expanded="true" />
+            <element signature="method#loadProperties#0;class#AnnotateEssaysFull#0" />
+            <element signature="method#createProperties#0;class#AnnotateEssaysFull#0" />
+            <element signature="method#annotateDatasetPartition#0;class#AnnotateEssaysFull#0" />
+          </folding>
         </state>
       </provider>
     </entry>
