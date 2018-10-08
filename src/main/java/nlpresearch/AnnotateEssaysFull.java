@@ -94,7 +94,9 @@ public class AnnotateEssaysFull {
 
                 tagWordsInMention(taggedSentences, mention, COREF_REF, headPhraseId.toString());
                 // ensure is a single tag
-                tagWordsInMention(taggedSentences, mention, COREF_PHRASE, headPhrase.replace(" ", "_"));
+                tagWordsInMention(taggedSentences, mention, COREF_PHRASE, headPhrase
+                        .replace(" ", "_")
+                        .replace(":", "_SEMI-COLON_"));
             }
         }
     }
@@ -260,14 +262,9 @@ public class AnnotateEssaysFull {
     public static void main(String[] args) throws IOException {
 
         // see https://stanfordnlp.github.io/CoreNLP/coref.html
-        // NOTE - all of these other models are required to do co-ref resolution
-//        Properties props = new Properties();
-//        props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,depparse,coref");
-//        props.setProperty("coref.algorithm", "neural");
-
         Properties props = loadProperties("neural-english.properties");
         List<String> datasets   = Arrays.asList("CoralBleaching", "SkinCancer");
-        List<String> partitions = Arrays.asList("Training", "Test");
+        List<String> partitions = Arrays.asList("Test","Training");
 
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
         System.out.println("Stanford Core NLP library loaded\n");
